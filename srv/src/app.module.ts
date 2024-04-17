@@ -1,8 +1,8 @@
 import { Module } from '@nestjs/common';
-import {TypeOrmModule} from "@nestjs/typeorm";
-import {UsersModule} from "./users/users.module";
+import { TypeOrmModule } from "@nestjs/typeorm";
+import { UsersModule } from "./users/users.module";
 
-const pg = new URL('postgresql://postgres:@localhost:5432/test_pagination?sslmode=disable');
+const pg = new URL(process.env.APP_PG_URL);
 
 @Module({
   imports: [
@@ -25,4 +25,4 @@ const pg = new URL('postgresql://postgres:@localhost:5432/test_pagination?sslmod
   controllers: [],
   providers: [],
 })
-export class AppModule {}
+export class AppModule { }
